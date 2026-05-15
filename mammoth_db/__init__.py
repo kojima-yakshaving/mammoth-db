@@ -1,2 +1,1 @@
 """mammoth-db package."""
-
