@@ -7,32 +7,32 @@
     "pyrefly": {
       "binary": {
         "path": ".venv/bin/pyrefly",
-        "arguments": ["lsp"]
+        "arguments": ["lsp"],
       },
       "settings": {
         "python": {
-          "pythonPath": ".venv/bin/python"
+          "pythonPath": ".venv/bin/python",
         },
         "pyrefly": {
           "project_includes": [
             "mammoth_db/*.py",
             "mammoth_db/**/*.py",
             "tests/*.py",
-            "tests/**/*.py"
+            "tests/**/*.py",
           ],
           "search_path": ["."],
-          "python_interpreter": ".venv/bin/python"
-        }
-      }
-    }
+          "python_interpreter": ".venv/bin/python",
+        },
+      },
+    },
   },
   "languages": {
     "Python": {
       "language_servers": ["pyrefly", "!pyright", "!pylsp"],
       "code_actions_on_format": {
-        "source.fixAll.pyrefly": true
-      }
-    }
-  }
+        "source.fixAll.pyrefly": true,
+      },
+    },
+  },
   "wrap_guides": [79],
 }
