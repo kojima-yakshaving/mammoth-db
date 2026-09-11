@@ -20,6 +20,11 @@ docs = [
     "sphinx>=9.1.0",
     "sphinx-autodoc-typehints>=3.13.6",
 ]
+lint = [
+    "pre-commit>=4.6.2",
+    "pydoclint>=0.9.1",
+    "ruff>=0.16.7",
+]
 
 [project.scripts]
 mammoth-db = "mammoth_db.__main__:main"
@@ -30,6 +35,26 @@ pythonpath = ["."]
 
 [tool.hatch.build.targets.wheel]
 packages = ["mammoth_db"]
+
+[tool.ruff]
+target-version = "py313"
+
+[tool.ruff.lint]
+extend-select = ["D100", "D101", "D102", "D103", "D104", "D106"]
+# D105 (magic methods) and D107 (__init__) are self-evident; skip them.
+
+[tool.ruff.lint.per-file-ignores]
+# __main__ is a CLI entry point, not part of the documented interface.
+"mammoth_db/__main__.py" = ["D100", "D101", "D102", "D103", "D104", "D106"]
+"tests/*" = ["D100", "D101", "D102", "D103", "D104", "D106"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pydoclint]
+style = "google"
+arg-type-hints-in-docstring = false
+check-return-types = false
 
 [tool.pyrefly]
 project-includes = [

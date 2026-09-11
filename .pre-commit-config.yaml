@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: mammoth-db-docstrings
+        name: Require docstrings on new/changed mammoth_db definitions
+        entry: uv run python scripts/check_new_docstrings.py
+        language: system
+        files: ^mammoth_db/.*\.py$

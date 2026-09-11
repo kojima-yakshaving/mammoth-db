@@ -19,7 +19,7 @@ class Page:
         """Create a page from an existing byte buffer
 
         Args:
-            buffer: Existing byte buffer to wrap.
+            bytes: Existing byte buffer to wrap.
 
         Returns:
             A page backed by the provided buffer
@@ -65,7 +65,7 @@ class Page:
 
         Raises:
             OverflowError: If ``n`` cannot fit in four unsigned bytes.
-        """
+        """  # noqa: DOC502 -- propagates from int.to_bytes, not raised directly here
         self.byte_buffer.seek(offset)
         self.byte_buffer.write(n.to_bytes(4))
         self.byte_buffer.seek(0)
